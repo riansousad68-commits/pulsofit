@@ -1,0 +1,51 @@
+Registro do projeto PulsoFit
+Data: 2026-06-02
+
+Objetivo
+- Criar um aplicativo web simples e funcional para cadastro de exercicios, registro de treinos, historico, dashboard, cronograma semanal e nivel estilo jogo.
+
+Stack definida
+- Backend: Flask.
+- Banco: SQLite com sqlite3.
+- Frontend: HTML, CSS e JavaScript puro.
+- Sem login, sem APIs externas e sem frameworks frontend.
+
+Arquivos criados
+- app.py: rotas Flask, validacoes principais e integracao com templates.
+- database.py: conexao SQLite, criacao de tabelas e funcoes de CRUD/resumo.
+- templates/base.html: estrutura HTML base.
+- templates/index.html: tela principal com dashboard, formularios, historico e listas.
+- static/css/style.css: visual responsivo com tema escuro, verde e laranja.
+- static/js/main.js: confirmacao de exclusao e controle de detalhes abertos.
+- requirements.txt: dependencia Flask.
+- README.md: instrucoes de instalacao, execucao e testes.
+- tests/test_database.py: testes com unittest para regras principais do banco.
+
+Funcionalidades implementadas
+- Cadastrar, editar e deletar exercicios.
+- Registrar, editar e deletar treinos.
+- Filtrar historico por data.
+- Mostrar total de treinos na semana.
+- Mostrar repeticoes semanais.
+- Mostrar exercicio mais feito por volume total.
+- Escolher dias disponiveis para treinar.
+- Calcular XP e nivel estilo jogo.
+
+Regra do nivel
+- XP = repeticoes totais + (series totais x 5).
+- Cada 250 XP sobe um nivel.
+
+Problemas encontrados
+- O comando python nao existe neste ambiente; usar python3.
+- pytest nao estava instalado; os testes foram feitos com unittest para evitar dependencia extra.
+- Flask nao estava instalado neste ambiente.
+- Nao foi possivel criar .venv porque o pacote python3-venv/ensurepip nao esta disponivel no sistema.
+- python3 -m pip tambem nao esta disponivel neste ambiente.
+- A pasta nao estava inicializada como repositorio Git.
+
+Cuidados para proximas implementacoes
+- Sempre rodar python3 -m unittest tests.test_database -v antes de considerar alteracoes concluidas.
+- Antes de rodar o servidor, instalar python3-venv e python3-pip se o sistema ainda nao tiver esses pacotes.
+- Manter o app simples: nao adicionar login, APIs externas ou React se o objetivo continuar sendo simplicidade.
+- Ao mexer em XP, cronograma ou dashboard, atualizar testes em tests/test_database.py primeiro.
+- Ao remover exercicios, lembrar que os treinos ligados a eles sao removidos por cascade no SQLite.
